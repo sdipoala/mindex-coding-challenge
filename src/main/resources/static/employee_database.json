@@ -49,5 +49,17 @@
     "lastName" : "Harrison",
     "position" : "Developer III",
     "department" : "Engineering"
+  },
+  {
+    "employee" : 
+    {
+      "employeeId" : "62c1084e-6e34-4630-93fd-9153afb65309",
+      "firstName" : "Pete",
+      "lastName" : "Best",
+      "position" : "Developer II",
+      "department" : "Engineering"
+    },
+    "salary" : 80000.00,
+    "effectiveDate" : "2016-08-09"
   }
 ]
