@@ -1,7 +1,5 @@
 package com.mindex.challenge.data;
 
-import java.util.List;
-
 import com.mindex.challenge.controller.EmployeeController;
 import com.mindex.challenge.data.Employee;
 import com.mindex.challenge.service.EmployeeService;
