@@ -2,18 +2,31 @@ package com.mindex.challenge.data;
 
 import java.util.List;
 
-import com.mindex.challenge.data.Employee;
 import com.mindex.challenge.controller.EmployeeController;
+import com.mindex.challenge.data.Employee;
+import com.mindex.challenge.service.EmployeeService;
 
 public class ReportingStructure {
     private Employee employee;
     private int numberOfReports;
     private EmployeeController controller;
 
-    public ReportingStructure() {
+    public ReportingStructure(Employee employee, EmployeeController controller) {
+        this.employee = employee;
+        this.controller = controller;
+        this.numberOfReports = calcNumberOfReports();
     }
 
-    public int getNumberOfReports(Employee employee, EmployeeController controller) {
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public int getNumberOfReports() {
+        return numberOfReports;
+    }
+
+    public int calcNumberOfReports() {
+
         int numOfReports = 0;
 
         if (employee.getDirectReports() != null) {
@@ -22,9 +35,10 @@ public class ReportingStructure {
                 String reportId = report.getEmployeeId();
                 report = controller.read(reportId);
 
-                numOfReports += new ReportingStructure().getNumberOfReports(report, controller);
+                numOfReports += new ReportingStructure(report, controller).calcNumberOfReports();
             }
         }
+        
         return numOfReports;
         
     }

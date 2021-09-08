@@ -38,7 +38,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/reportingStructure/{id}")
-    public int getNumberOfReports(@PathVariable String id) {
-        return new ReportingStructure().getNumberOfReports(employeeService.read(id), this);
+    public ReportingStructure getNumberOfReports(@PathVariable String id) {
+        return new ReportingStructure(employeeService.read(id), this);
     }
 }
